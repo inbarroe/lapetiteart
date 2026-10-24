@@ -1,26 +1,39 @@
 @import "tailwindcss";
 
+/* Palette taken from the La Petite Art logo: cream badge, brown lettering,
+   and the colours of the bunting flags. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #fbf6ec;
+  --paper: #fffdf8;
+  --brown: #5b3a29;
+  --brown-soft: #8a6a58;
+  --flag-pink: #f28da6;
+  --flag-sky: #7cc3e8;
+  --flag-yellow: #f6cd4c;
+  --flag-mint: #8fd3b6;
+  --flag-teal: #3f9f9c;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-cream: var(--cream);
+  --color-paper: var(--paper);
+  --color-brown: var(--brown);
+  --color-brown-soft: var(--brown-soft);
+  --color-flag-pink: var(--flag-pink);
+  --color-flag-sky: var(--flag-sky);
+  --color-flag-yellow: var(--flag-yellow);
+  --color-flag-mint: var(--flag-mint);
+  --color-flag-teal: var(--flag-teal);
+  --font-sans: var(--font-assistant);
+  --font-display: var(--font-varela);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--brown);
+}
+
+:focus-visible {
+  outline: 3px solid var(--flag-teal);
+  outline-offset: 2px;
 }
