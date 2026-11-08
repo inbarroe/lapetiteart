@@ -35,3 +35,7 @@ create index requests_status_created_at_idx on public.requests (status, created_
 -- Row Level Security with no policies: the public (anon) key can't read or
 -- write anything. Only the website's server, using the secret key, can.
 alter table public.requests enable row level security;
+
+-- The project doesn't expose new tables automatically, so grant access
+-- explicitly, and only to the server-side role.
+grant select, insert, update, delete on public.requests to service_role;
