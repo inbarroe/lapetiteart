@@ -8,7 +8,8 @@ let client: SupabaseClient | null | undefined;
 // makes the build fail if that happens). Returns null when not configured.
 export function getDb(): SupabaseClient | null {
   if (client === undefined) {
-    const url = process.env.SUPABASE_URL;
+    // Accept the REST endpoint too (".../rest/v1/"), which is easy to copy by mistake.
+    const url = process.env.SUPABASE_URL?.replace(/\/rest\/v1\/?$/, "").replace(/\/$/, "");
     const key = process.env.SUPABASE_SECRET_KEY;
     client = url && key ? createClient(url, key, { auth: { persistSession: false } }) : null;
   }
